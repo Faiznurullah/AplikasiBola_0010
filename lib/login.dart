@@ -109,10 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                         child: ElevatedButton(
                           onPressed: () {
                              if (_formKey.currentState!.validate()) {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
+                          
+
+                           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomePage()), (route) => false);
+
                         }
                           },
                           child: Text('Login'),
@@ -132,6 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                     Text("Apakah Belum punya akun? "),
                     GestureDetector(
                       onTap: () {
+                        
                        Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
                       },
                       child: Text(
