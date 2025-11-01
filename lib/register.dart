@@ -90,6 +90,11 @@ class _RegisterPageState extends State<RegisterPage> {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your phone number';
                           }
+
+                          if(value.length < 10 || value.length > 13){
+                            return 'Please enter 10-13 numbers.';
+                          }
+
                           return null;
                         },
                       ),

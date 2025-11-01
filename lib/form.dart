@@ -37,6 +37,13 @@ class _FormPageState extends State<FormPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: nameController,
                     decoration: InputDecoration(labelText: "Name"),
+                    validator: (value) {
+                        
+                        if (value == null || value.isEmpty) {
+                            return 'Please enter name value.';
+                          }
+
+                    },
                   ),
 
                   SizedBox(height: 10),
@@ -45,6 +52,17 @@ class _FormPageState extends State<FormPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: positionController,
                     decoration: InputDecoration(labelText: "Position"),
+                    validator: (value) {
+                        
+                        if (value == null || value.isEmpty) {
+                            return 'Please enter Position value.';
+                          }
+
+                       if(!['Penyerang', 'Gelandang', 'Bek', 'Penjaga Gawang'].contains(value)){
+                         return 'Please enter valid Position value. like Penyerang, Gelandang, Bek, Penjaga Gawang';
+                       }
+
+                    },
                   ),
 
                   SizedBox(height: 10),
@@ -53,6 +71,23 @@ class _FormPageState extends State<FormPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: numberController,
                     decoration: InputDecoration(labelText: "Number"),
+                    validator: (value) {
+                        
+                        if (value == null || value.isEmpty) {
+                            return 'Please enter Number value.';
+                          }
+
+                          if (value == null || value.isEmpty) {
+                      return 'Please enter Age value.';
+                    }
+                    final parsed = int.tryParse(value);
+                    if (parsed == null) {
+                      return 'Please enter a valid number.';
+                    }
+                     
+                    return null;
+
+                    },
                   ),
 
                   SizedBox(height: 10),
@@ -61,6 +96,24 @@ class _FormPageState extends State<FormPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: ageController,
                     decoration: InputDecoration(labelText: "Age"),
+                    validator: (value){
+                      
+
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Age value.';
+                    }
+                    final parsed = int.tryParse(value);
+                    if (parsed == null) {
+                      return 'Please enter a valid number.';
+                    }
+                    if (parsed < 10 || parsed > 50) {
+                      return 'Age must be between 10 and 50.';
+                    }
+                    return null;
+
+
+
+                    },
                   ),
 
                   SizedBox(height: 10),
@@ -68,7 +121,20 @@ class _FormPageState extends State<FormPage> {
                   TextFormField(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: heightController,
-                    decoration: InputDecoration(labelText: "Height"),
+                    decoration: InputDecoration(labelText: "Height (cm)"),
+                    validator: (value) {
+                        
+                        if (value == null || value.isEmpty) {
+                      return 'Please enter Age value.';
+                    }
+                    final parsed = int.tryParse(value);
+                    if (parsed == null) {
+                      return 'Please enter a valid number.';
+                    }
+                     
+                    return null;
+
+                    },
                   ),
 
                   SizedBox(height: 10),
@@ -77,6 +143,13 @@ class _FormPageState extends State<FormPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     controller: nationController,
                     decoration: InputDecoration(labelText: "Nationality"),
+                    validator: (value) {
+                        
+                        if (value == null || value.isEmpty) {
+                            return 'Please enter nationality value.';
+                          }
+
+                    },
                   ),
 
                    SizedBox(height: 10),

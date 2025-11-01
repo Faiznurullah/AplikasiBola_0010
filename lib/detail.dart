@@ -21,11 +21,21 @@ class DetailPage extends StatefulWidget {
     required this.gender,
   });
 
+  
+
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
+  late double heightM;
+
+  @override
+  void initState() {
+    super.initState();
+    heightM = widget.height / 100;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +56,7 @@ class _DetailPageState extends State<DetailPage> {
             SizedBox(height: 10),
             Text("Age: ${widget.age}"),
             SizedBox(height: 10),
-            Text("Height: ${widget.height}"),
+            Text("Height: ${heightM} Meter."),
             SizedBox(height: 10),
             Text("Gender: ${widget.gender}"),
 
